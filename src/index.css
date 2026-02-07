@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900??family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import "tailwindcss";
+
+html,
+body {
+    width: 100dvw;
+    overflow: hidden;
+    height: 100dvw;
+    background-image: url('/images/background-wallpaper.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@theme {
+    --font-georama: "Georama", sans-serif;
+    --font-roboto: "Roboto Mono", monospace;
+    --breakpoint-3xl: 1920xl; 
+}
+
+@utility flex-center {
+    @apply flex items-center justify-center;
+}
+
+@utility col-center {
+    @apply flex flex-col items-center justify-center;
+}
+
+@utility abs-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+@layer base {
+    main {
+        @apply w-dvw h-dvh overflow-hidden;
+    }
+
+    nav {
+        @apply flex items-center justify-between bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;;
+
+        div {
+            @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
+
+            &:last-child {
+                @apply max-sm:hidden;
+            }
+        }
+
+        ul {
+            @apply flex items-center gap-5 max-sm:hidden;
+
+            p {
+                @apply text-sm cursor-pointer hover:underline transition-all;
+            }
+        }
+        
+    }
+
+    #dock {
+        @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+
+        .dock-container {
+            @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
+        }
+
+        .tooltip {
+            @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+        }
+
+        .dock-icon {
+            @apply size-14 3xl:size-20 cursor-pointer;
+
+            img {
+                @apply object-cover object-center;
+            }
+        }
+    }
+
+}
